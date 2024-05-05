@@ -135,9 +135,9 @@ class _CartPageState extends State<CartPage> {
                           children: [
                             IconButton(
                               icon: Icon(Icons.add),
-                              color: cartProduct.countCartProduct < cartProduct.product.count_product! ? Colors.blue : Colors.grey,
+                              color: cartProduct.countCartProduct < cartProduct.product.countProduct! ? Colors.blue : Colors.grey,
                               onPressed: () {
-                                if (cartProduct.countCartProduct < cartProduct.product.count_product!) {
+                                if (cartProduct.countCartProduct < cartProduct.product.countProduct!) {
                                   updateProductCount(cartProduct.product.id, true);
                                 }
                               },

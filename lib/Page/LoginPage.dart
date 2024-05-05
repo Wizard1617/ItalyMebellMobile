@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mebel_shop/Page/BottomNavigationPage.dart';
 import 'package:mebel_shop/Page/MainScreen.dart';
 import 'package:mebel_shop/Page/ProductsPage.dart';
 import 'package:mebel_shop/Page/RegistrationPage.dart';
@@ -61,7 +62,7 @@ class _LoginPageState extends State<LoginPage> {
                   // Переход на страницу товаров
                   Navigator.pushReplacement( // Используйте pushReplacement, чтобы предотвратить возврат на страницу входа
                     context,
-                    MaterialPageRoute(builder: (context) => ProductsPage()),
+                    MaterialPageRoute(builder: (context) => BottomNavigationPage()),
                   );
                 } else {
                   print("Ошибка авторизации");

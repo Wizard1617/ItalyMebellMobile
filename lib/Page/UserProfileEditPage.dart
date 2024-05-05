@@ -19,8 +19,6 @@ class _UserProfileEditPageState extends State<UserProfileEditPage> {
   TextEditingController firstNameController = TextEditingController();
   TextEditingController lastNameController = TextEditingController();
   TextEditingController phoneNumberController = TextEditingController();
-  TextEditingController roleController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
   String? userEmail;
 
   @override
@@ -44,14 +42,6 @@ class _UserProfileEditPageState extends State<UserProfileEditPage> {
       "second_name_user": lastNameController.text,
       "phone_number_client": phoneNumberController.text,
     };
-
-    // Добавляем пароль и роль пользователя, если они предоставлены
-    if (passwordController.text.isNotEmpty) {
-      data["password_user"] = passwordController.text;
-    }
-    if (roleController.text.isNotEmpty) {
-      data["role_user"] = roleController.text;
-    }
 
     // Если выбран файл изображения, добавляем его в данные формы
     if (_imageFile != null) {
@@ -93,7 +83,7 @@ class _UserProfileEditPageState extends State<UserProfileEditPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Edit Profile"),
+        title: Text("Редактировать профиль"),
       ),
       body: SingleChildScrollView(
         child: Form(
@@ -104,35 +94,33 @@ class _UserProfileEditPageState extends State<UserProfileEditPage> {
                 Image.file(File(_imageFile!.path), height: 200),
               TextButton(
                 onPressed: pickImage,
-                child: Text("Change Photo"),
+                child: Text("Изменить фото"),
+                style: TextButton.styleFrom(
+                  primary: Colors.blue,
+                ),
               ),
               TextFormField(
                 controller: firstNameController,
-                decoration: InputDecoration(labelText: 'First Name'),
-                validator: (value) => value!.isEmpty ? "Please enter your first name" : null,
+                decoration: InputDecoration(labelText: 'Имя'),
+                validator: (value) => value!.isEmpty ? "Пожалуйста, введите ваше имя" : null,
               ),
               TextFormField(
                 controller: lastNameController,
-                decoration: InputDecoration(labelText: 'Last Name'),
-                validator: (value) => value!.isEmpty ? "Please enter your last name" : null,
+                decoration: InputDecoration(labelText: 'Фамилия'),
+                validator: (value) => value!.isEmpty ? "Пожалуйста, введите вашу фамилию" : null,
               ),
               TextFormField(
                 controller: phoneNumberController,
-                decoration: InputDecoration(labelText: 'Phone Number'),
-                validator: (value) => value!.isEmpty ? "Please enter your phone number" : null,
-              ),
-              TextFormField(
-                controller: roleController,
-                decoration: InputDecoration(labelText: 'Role'),
-              ),
-              TextFormField(
-                controller: passwordController,
-                decoration: InputDecoration(labelText: 'Password'),
-                obscureText: true,
+                decoration: InputDecoration(labelText: 'Номер телефона'),
+                validator: (value) => value!.isEmpty ? "Пожалуйста, введите ваш номер телефона" : null,
               ),
               ElevatedButton(
                 onPressed: updateUserProfile,
-                child: Text("Update Profile"),
+                child: Text("Обновить профиль"),
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.blue,
+                  onPrimary: Colors.white,
+                ),
               ),
             ],
           ),

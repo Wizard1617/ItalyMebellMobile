@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mebel_shop/Page/BottomNavigationPage.dart';
 import 'package:mebel_shop/Page/ProductsPage.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:mebel_shop/Page/LoginPage.dart';
@@ -10,7 +11,7 @@ void main() async {
   String? token = prefs.getString('token');
   email_user = prefs.getString('email_user');
 
-  runApp(MyApp(startPage: token == null ? LoginPage() : ProductsPage()));
+  runApp(MyApp(startPage: token == null ? LoginPage() : BottomNavigationPage()));
 }
 
 class MyApp extends StatelessWidget {
